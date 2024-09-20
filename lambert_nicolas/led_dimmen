@@ -1,0 +1,23 @@
+int zaehler = 0;  
+
+void setup() {
+  
+  Serial.begin(9600);
+  pinMode(6, OUTPUT);
+
+}
+
+void loop() {
+  zaehlerzumPin();  
+  
+  Serial.println(zaehler);  
+  zaehler++;  
+
+  delay(500);  
+}
+
+void zaehlerzumPin() {
+  if (zaehler <= 255) {
+    analogWrite(6, zaehler); 
+  }
+}
