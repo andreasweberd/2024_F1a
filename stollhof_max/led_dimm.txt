@@ -1,0 +1,19 @@
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int step = 10;
+  int i= 0;
+  for(int i; i <= 255; i + step){
+    analogWrite(13, i);
+    delay(300);
+  }
+  int a = 255;
+  for(int a; a > 1; a - step){
+    analogWrite(13, a);
+    delay(300);
+  }
+}
