@@ -1,0 +1,25 @@
+void setup() { 
+  
+
+  pinMode(6, OUTPUT);
+}
+  void loop() {
+    analogWrite(6, 255);
+    delay(150);
+
+  delay(333);
+   dimm();
+   delay(123);
+}
+  
+  void dimm (){
+    digitalWrite();
+    dimm(6 = 0)
+     {for(int 6 = 0; 6 = 25; 6+10)
+     
+     
+      {for(int i=0; i=25; i+10)
+  }
+
+
+//hat nicht funktioniert :/
