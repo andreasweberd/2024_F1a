@@ -1,0 +1,37 @@
+void setup() {
+  // put your setup code here, to run once:
+
+  pinMode(6, OUTPUT);
+
+}
+
+void dimm{
+  Wert = 0;
+
+  while(Wert <=255){
+    analogWrite(6, Wert);
+    Wert 
+  }
+
+  delay(333);
+  
+  for(255-0){
+    analogWrite(6, 255);
+  }
+  
+  delay(333);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  dimm;
+  delay(333);
+
+  analogWrite(6, 255);   //PWM am Pin 6
+  delay(333);            
+                          
+  analogWrite(6, 75);    
+  delay(333);            
+
+}
