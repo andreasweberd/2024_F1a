@@ -1,0 +1,32 @@
+//LED Dimmer
+int LEDRot = 13;
+
+
+float schrittweite =10;
+
+void setup() {
+pinMode (LEDRot, OUTPUT);
+
+}
+
+
+void loop( ){
+  dimm();
+
+}
+
+void dimm() {
+  
+  digitalWrite (LEDRot, LOW);
+  delay (1000);
+  for (int rot = 0; rot <= 255; rot = rot + schrittweite) {
+    analogWrite(LEDRot, rot);
+    delay(1000);
+   
+  
+  }
+  for (int rot = 255; rot >= 0; rot = rot - schrittweite) {
+    analogWrite(LEDRot, rot);
+    delay(1000);
+  }
+}
