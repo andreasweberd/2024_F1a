@@ -1,0 +1,21 @@
+void setup() {
+
+  pinMode(6, OUTPUT);
+}
+
+void dimm() {
+  for (int dimm = 0; dimm < 256; dimm ++)
+    digitalWrite(6, HIGH);
+    digitalWrite(6, LOW);
+}
+
+void loop() {
+
+  digitalWrite(6, 255);
+  delay(1000);
+
+  delay(1000);
+  dimm ();
+  delay(1000);
+}
+
