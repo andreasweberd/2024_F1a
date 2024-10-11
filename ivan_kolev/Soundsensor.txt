@@ -1,0 +1,14 @@
+void setup() {
+  pinMode(4, OUTPUT);  // put your setup code here, to run once:
+  pinMode(A1, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int wert = analogRead(A1);
+  Serial.println(wert);
+  if wert < 100:
+    digitalWrite(4,HIGH);
+    digitalWrite()
+  delay(1000);  // put your main code here, to run repeatedly:
+}
