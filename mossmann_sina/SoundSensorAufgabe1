@@ -1,0 +1,36 @@
+const int GRUENE_LED = 2;  
+const int GELBE_LED = 3;   
+const int ROTE_LED = 4;    
+
+void setup() {
+  pinMode(A0, INPUT);
+  pinMode(GRUENE_LED, OUTPUT);
+  pinMode(GELBE_LED, OUTPUT);
+  pinMode(ROTE_LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int analogWertVomSoundSensor = analogRead(A0);
+  Serial.println(analogWertVomSoundSensor);
+
+  if (analogWertVomSoundSensor < 100) {
+    digitalWrite(GRUENE_LED, LOW);
+    digitalWrite(GELBE_LED, LOW);
+    digitalWrite(ROTE_LED, LOW);
+  } else if (analogWertVomSoundSensor >= 100 && analogWertVomSoundSensor < 200) {
+    digitalWrite(GRUENE_LED, HIGH);
+    digitalWrite(GELBE_LED, LOW);
+    digitalWrite(ROTE_LED, LOW);
+  } else if (analogWertVomSoundSensor >= 200 && analogWertVomSoundSensor < 300) {
+    digitalWrite(GRUENE_LED, LOW);
+    digitalWrite(GELBE_LED, HIGH);
+    digitalWrite(ROTE_LED, LOW);
+  } else {
+    digitalWrite(GRUENE_LED, LOW);
+    digitalWrite(GELBE_LED, LOW);
+    digitalWrite(ROTE_LED, HIGH);
+  }
+
+  delay(80); //80ms warten
+}
