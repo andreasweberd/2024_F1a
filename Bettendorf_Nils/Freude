@@ -1,0 +1,39 @@
+// Array für die Noten und ihre Frequenzen (in Hertz)
+const int NOTEN[] = {
+  330, 330, 349, 349, 392, 392, 349,   // E E F F G G F
+  330, 330, 349, 349, 392, 392, 349,   // E E F F G G F
+  294, 294, 330, 330, 294, 294, 262,   // D D E E D D C
+  330, 330, 349, 349, 392, 392, 349,   // E E F F G G F
+  330, 330, 349, 349, 392, 392, 349,   // E E F F G G F
+  294, 294, 330, 330, 294, 294, 262    // D D E E D D C
+};
+
+// Array für die Dauer der Noten (in Millisekunden)
+const int DAUER[] = {
+  500, 500, 500, 500, 500, 500, 1000,  // E E F F G G F
+  500, 500, 500, 500, 500, 500, 1000,  // E E F F G G F
+  500, 500, 500, 500, 500, 500, 1000,  // D D E E D D C
+  500, 500, 500, 500, 500, 500, 1000,  // E E F F G G F
+  500, 500, 500, 500, 500, 500, 1000,  // E E F F G G F
+  500, 500, 500, 500, 500, 500, 1000   // D D E E D D C
+};
+
+const int BUZZER_PIN = 9; // Pin für den Buzzer
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+}
+
+void loop() {
+  for (int i = 0; i < sizeof(NOTEN) / sizeof(NOTEN[0]); i++) {
+    // Abspielen des aktuellen Tons
+    int frequency = NOTEN[i];
+    int duration = DAUER[i];
+    
+    tone(BUZZER_PIN, frequency, duration);  // Ton erzeugen
+    delay(duration + 50); // Kleine Pause zwischen den Noten
+  }
+  
+  // Nach dem Lied eine Pause, bevor es wiederholt wird
+  delay(1000);
+}
