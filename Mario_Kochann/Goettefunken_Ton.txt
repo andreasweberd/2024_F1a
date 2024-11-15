@@ -1,0 +1,46 @@
+#include "noten.h" // Enthält die Noten-Definitionen
+
+const int buzzerPin = 8; // Pin, an dem der Buzzer angeschlossen ist
+
+// Melodie: "Ode an die Freude" (komplett)
+int melody[] = {
+  NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_D4, NOTE_D4, // Abschnitt 1
+
+  NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_C4, // Abschnitt 2
+
+  NOTE_D4, NOTE_D4, NOTE_E4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_E4, NOTE_C4,
+  NOTE_D4, NOTE_E4, NOTE_F4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_D4, NOTE_G3, // Abschnitt 3
+
+  NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_C4 // Abschnitt 4
+};
+
+// Notenlängen (4 = Viertelnote, 8 = Achtelnote, 2 = Halbe Note etc.)
+int noteDurations[] = {
+  4, 4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4, // Abschnitt 1
+
+  4, 4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4, // Abschnitt 2
+
+  4, 4, 4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4, // Abschnitt 3
+
+  4, 4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4 // Abschnitt 4
+};
+
+void setup() {
+  for (int i = 0; i < sizeof(melody) / sizeof(melody[0]); i++) {
+    int noteDuration = 1000 / noteDurations[i]; // Dauer der Note in ms
+    tone(buzzerPin, melody[i], noteDuration);   // Ton abspielen
+    delay(noteDuration * 1.3);                 // Pause zwischen den Noten
+    noTone(buzzerPin);                          // Ton ausschalten
+  }
+}
+
+void loop() {
+  // Kein weiterer Code nötig
+}
